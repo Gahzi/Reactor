@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Assets.Resources.Scripts
+namespace Assets.Scripts
 { //	public enum Team { Red = 0, Blue = 1, None = 2 };
 //	
 //	public enum PlayerMode { Player = 0, Spectator = 1 };
@@ -28,13 +28,11 @@ namespace Assets.Resources.Scripts
 
     public class GameConstants
     {
-        public enum MovementDirections
+        public enum GameObjectColor
         {
-            None,
-            Up,
-            Right,
-            Down,
-            Left
+            Red,
+            Blue,
+            Yellow
         }
 
         public static readonly float NewObjectMinDistance = 0.05f;
