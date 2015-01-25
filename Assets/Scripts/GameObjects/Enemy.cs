@@ -3,6 +3,7 @@ using Assets.Scripts;
 using Assets.Scripts.GameObjects;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [Serializable]
 public class Enemy : MonoBehaviour
@@ -32,6 +33,28 @@ public class Enemy : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, _targetPlayer.transform.position,
             Time.fixedDeltaTime*_movementSpeed);
+    }
+
+    public void OnTouch(BaseEventData e)
+    {
+        Debug.Log("Touched: " + Time.time);
+    }
+
+    public void OnTouchEnded(BaseEventData e)
+    {
+        Debug.Log("Touch Ended: " + Time.time);
+    }
+
+    public void OnMoved(BaseEventData e)
+    {
+        PointerEventData ped = (e is PointerEventData) ? (ped = (PointerEventData) e) : (ped = null);
+
+        if (ped != null)
+        {
+            transform.position = transform.position + new Vector3(ped.delta.x,ped.delta.y,0);
+        }
+
+        Debug.Log("Moved: " + Time.time);
     }
 
     [UsedImplicitly]
