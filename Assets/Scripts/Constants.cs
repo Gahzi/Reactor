@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts
 { //	public enum Team { Red = 0, Blue = 1, None = 2 };
@@ -34,6 +36,18 @@ namespace Assets.Scripts
             Blue,
             Yellow
         }
+
+        static GameConstants()
+        {
+            ColorCodes = new Dictionary<GameObjectColor, Color>
+            {
+                {GameObjectColor.Blue,Color.blue},
+                {GameObjectColor.Red,Color.red},
+                {GameObjectColor.Yellow,Color.yellow}
+            };
+        }
+
+        public static Dictionary<GameObjectColor, Color> ColorCodes { get; set; }
 
         public static readonly float NewObjectMinDistance = 0.05f;
         //		public static readonly float pregameTime = 30.0f;
@@ -95,22 +109,16 @@ namespace Assets.Scripts
         public static IDictionary<Type, string> PrefabTags { get { return PrefabTagsDictionary; } }
     }
 
-//	public class MaterialConstants
-//	{
-//		public enum type { ItemCommon, ItemUncommon, ItemRare, ItemLegendary, CoreBlue, CoreRed };
-//		
-//		private static readonly IDictionary<type, string> materialNames = new Dictionary<type, string>
-//		{
-//			{type.ItemCommon, "Materials/Visual/Items/ItemCommon"},
-//			{type.ItemUncommon, "Materials/Visual/Items/ItemUncommon"},
-//			{type.ItemRare, "Materials/Visual/Items/ItemRare"},
-//			{type.ItemLegendary, "Materials/Visual/Items/ItemLegendary"},
-//			{type.CoreBlue, "Materials/Visual/Core/CoreBlueMaterial"},
-//			{type.CoreRed, "Materials/Visual/Core/CoreRedMaterial"}
-//		};
-//		
-//		public static IDictionary<type, string> MATERIAL_NAMES { get { return materialNames; } }
-//	}
+    public class SpriteConstants
+    {
+        private static readonly IDictionary<ObjectConstants.Type,string > _spriteNames = new Dictionary<ObjectConstants.Type, string>
+		{
+			{ObjectConstants.Type.Enemy, "Sprites/Enemy"},
+			{ObjectConstants.Type.Food, "Sprites/Food"},
+		};
+
+        public static IDictionary<ObjectConstants.Type, string> SPRITE_NAMES { get { return _spriteNames; } }
+    }
 
     public class AudioConstants
     {

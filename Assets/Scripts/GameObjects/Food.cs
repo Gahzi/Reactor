@@ -16,7 +16,10 @@ namespace Assets.Scripts.GameObjects
         [UsedImplicitly]
         void Start()
         {
-
+            if (_targetPlayer == null)
+            {
+                _targetPlayer = FindObjectOfType<Player>();
+            }
         }
 
         // Update is called once per frame
@@ -42,6 +45,10 @@ namespace Assets.Scripts.GameObjects
             return _color;
         }
 
+        public void SetColor(GameConstants.GameObjectColor newColor)
+        {
+            _color = newColor;
+        }
         public int GetHealthGained()
         {
             return _healthGained;

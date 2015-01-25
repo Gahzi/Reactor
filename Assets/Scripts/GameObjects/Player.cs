@@ -63,6 +63,9 @@ public class Player : MonoBehaviour
             }
             else if (collidedFood)
             {
+                SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+                renderer.color = GameConstants.ColorCodes[collidedFood.GetColor()];
+
                 _health += collidedFood.GetHealthGained();
             }
 

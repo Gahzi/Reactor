@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.GameObjects;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -35,7 +36,7 @@ namespace Assets.Scripts.Managers
         {
             if (_timeToSpawnEnemy - Time.fixedDeltaTime <= 0)
             {
-                SpawnNewItem();
+                SpawnNewRandomItem();
                 _timeToSpawnEnemy = _defaultTimeToSpawnEnemy;
             }
             else
@@ -44,7 +45,7 @@ namespace Assets.Scripts.Managers
             }
         }
 
-        private void SpawnNewItem()
+        private void SpawnNewRandomItem()
         {
             ObjectConstants.Type[] types = (ObjectConstants.Type[]) Enum.GetValues(typeof (ObjectConstants.Type));
             int totalTypeWeight = _randomTypeWeights.Sum();
@@ -78,8 +79,24 @@ namespace Assets.Scripts.Managers
             int randomColorsIndex = Random.Range(0, fullColors.Count);
             ObjectConstants.Type newType = fullTypes[randomTypeIndex];
             GameConstants.GameObjectColor newColor = fullColors[randomColorsIndex];
-            Debug.Log("New Type:" + newType);
-            Debug.Log("New Color:" + newColor);
+            SpawnNewItem(newType, newColor);
+        }
+
+        private void SpawnNewItem(ObjectConstants.Type newType, GameConstants.GameObjectColor newColor)
+        {
+            GameObject newItem = (GameObject) Instantiate(Resources.Load(ObjectConstants.PrefabNames[newType]));
+            SpriteRenderer newRenderer = newItem.GetComponent<SpriteRenderer>();
+            newRenderer.color = GameConstants.ColorCodes[newColor];
+
+            if (newItem.GetComponent<Enemy>())
+            {
+                newItem.GetComponent<Enemy>().SetColor(newColor);
+            }
+
+            if (newItem.GetComponent<Food>())
+            {
+                newItem.GetComponent<Food>().SetColor(newColor);
+            }
         }
     }
 }

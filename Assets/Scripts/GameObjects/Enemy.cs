@@ -45,6 +45,11 @@ public class Enemy : MonoBehaviour
         return _color;
     }
 
+    public void SetColor(GameConstants.GameObjectColor newColor)
+    {
+        _color = newColor;
+    }
+
     public int GetDamage()
     {
         return _damage;
