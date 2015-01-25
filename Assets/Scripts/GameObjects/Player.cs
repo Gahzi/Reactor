@@ -58,6 +58,7 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
+//					AudioSource.Play("Audio/sfx/rr_audio_hit_01");
                     _health -= collidedEnemy.GetDamage();
                 }
             }
