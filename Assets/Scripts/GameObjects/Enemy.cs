@@ -7,26 +7,31 @@ using UnityEngine;
 [Serializable]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float MovementSpeed;
+    [SerializeField] private float _movementSpeed;
+    [SerializeField] private int _damage;
     [SerializeField] private Player _targetPlayer;
     [SerializeField] private GameConstants.GameObjectColor _color;
 
 	// Use this for initialization
 	[UsedImplicitly]
     void Start () {
+	    if (_targetPlayer == null)
+	    {
+	        _targetPlayer = FindObjectOfType<Player>();
+	    }
     
 	}
 	
 	// Update is called once per frame
     [UsedImplicitly]
-	void Update ()
+	void FixedUpdate ()
     {
         if (_targetPlayer == null)
         {
             return;
         }
         transform.position = Vector3.MoveTowards(transform.position, _targetPlayer.transform.position,
-            Time.fixedDeltaTime*MovementSpeed);
+            Time.fixedDeltaTime*_movementSpeed);
     }
 
     [UsedImplicitly]
@@ -40,5 +45,8 @@ public class Enemy : MonoBehaviour
         return _color;
     }
 
-
+    public int GetDamage()
+    {
+        return _damage;
+    }
 }

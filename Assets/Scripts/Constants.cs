@@ -58,61 +58,16 @@ namespace Assets.Scripts
     {
         public enum Type
         {
-            Floor
+            Enemy,
+            Food
         };
 
         static ObjectConstants()
         {
             PrefabNames = new Dictionary<Type, string>
             {
-                {Type.Floor,"Prefabs/GameObjects/Floor"}
-//			{type.Spectator, "Characters/SpectatorLocal"},
-//			{type.Gamepad, "Gamepads/Gamepad"},
-//			{type.Item, "Items/Item"},
-//			{type.PlayerCamera, "Cameras/Player Camera"},
-//			{type.PlasmaBulletLevel0, "Abilities/bullet/PlasmaBulletl0"},
-//			{type.PlasmaBulletLevel1, "Abilities/bullet/PlasmaBulletl1"},
-//			{type.PlasmaBulletLevel2, "Abilities/bullet/PlasmaBulletl2"},
-//			{type.BasicRigidbodyCube, "Environment/BasicRigidbodyCube"},
-//			{type.MachinegunBulletLevel0, "Abilities/bullet/machinegunbulletl0"},
-//			{type.MachinegunBulletLevel1, "Abilities/bullet/machinegunbulletl1"},
-//			{type.MachinegunBulletLevel2, "Abilities/bullet/machinegunbulletl2"},
-//			{type.RocketBulletLevel0, "abilities/bullet/rocketbulletl0"},
-//			{type.RocketBulletLevel1, "abilities/bullet/rocketbulletl1"},
-//			{type.RocketBulletLevel2, "abilities/bullet/rocketbulletl2"},
-//			{type.KillTagBlue, "items/killtagblue"},
-//			{type.KillTagRed, "items/killtagred"},
-//			{type.LightAutoLaserBullet, "abilities/bullet/lightautolaserbullet"},
-//			{type.SmallExplosion, "abilities/explosion/smallexplosion"},
-//			{type.RocketExplosion, "abilities/explosion/rocketexplosion"},
-//			{type.NoDamageExplosionMedium, "abilities/explosion/mediumexplosion"},
-//			{type.PlasmaExplosionL0, "abilities/explosion/plasmaexplosionl0"},
-//			{type.PlasmaExplosionL1, "abilities/explosion/plasmaexplosionl1"},
-//			{type.PlasmaExplosionL2, "abilities/explosion/plasmaexplosionl2"},
-//			
-//			{type.FloatingText, "gui/floatingtext"},
-//			{type.HeavyCannonBulletLevel0, "abilities/bullet/heavycannonbulletl0"},
-//			{type.HeavyCannonBulletLevel1, "abilities/bullet/heavycannonbulletl1"},
-//			{type.HeavyCannonBulletLevel2, "abilities/bullet/heavycannonbulletl2"},
-//			{type.LightCannonBulletLevel0, "abilities/bullet/lightcannonbulletl0"},
-//			{type.LightCannonBulletLevel1, "abilities/bullet/lightcannonbulletl1"},
-//			{type.LightCannonBulletLevel2, "abilities/bullet/lightcannonbulletl2"},
-//			{type.ShotgunLevel0, "abilities/bullet/shotgunbulletl0"},
-//			{type.ShotgunLevel1, "abilities/bullet/shotgunbulletl1"},
-//			{type.ShotgunLevel2, "abilities/bullet/shotgunbulletl2"},
-//			{type.HomingRocketL0, "abilities/bullet/homingrocketbulletl0"},
-//			{type.MachineGunShellCasing, "abilities/machinegunshellcasing"},
-//			{type.HCannonShellCasing, "abilities/HCannonShellCasing"},
-//			{type.SniperShellCasing, "abilities/snipershellcasing"},
-//			{type.SniperBulletLevel0, "abilities/bullet/sniperbulletl0"},
-//			{type.SniperBulletLevel1, "abilities/bullet/sniperbulletl1"},
-//			{type.SniperBulletLevel2, "abilities/bullet/sniperbulletl2"},
-//			{type.RailgunBulletLevel0, "abilities/bullet/railgunbulletl0"},
-//			{type.RailgunBulletLevel1, "abilities/bullet/railgunbulletl1"},
-//			{type.RailgunBulletLevel2, "abilities/bullet/railgunbulletl2"},
-//			{type.MineLevel0, "abilities/bullet/minebulletl0"},
-//			{type.MineLevel1, "abilities/bullet/minebulletl1"},
-//			{type.MineLevel2, "abilities/bullet/minebulletl2"},
+                {Type.Enemy,"Prefabs/GameObjects/Enemy"},
+                {Type.Food,"Prefabs/GameObjects/Food"}
             };
         }
 

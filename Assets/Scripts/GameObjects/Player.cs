@@ -8,16 +8,16 @@ namespace Assets.Scripts.GameObjects
 [Serializable]
 public class Player : MonoBehaviour
     {
-        [SerializeField] private int Health;
+        [SerializeField] private int _health;
         [SerializeField] private GameConstants.GameObjectColor _color;
 
         // Use this for initialization
         [UsedImplicitly]
         private void Start()
         {
-            if (Health == 0)
+            if (_health == 0)
             {
-                Health = 100;
+                _health = 100;
             }
 
         }
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
         private void CheckHealth()
         {
-            if (Health <= 0)
+            if (_health <= 0)
             {
                 Destroy(gameObject);
             }
@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
         public void OnTriggerEnter2D(Collider2D other)
         {
             Enemy collidedEnemy = other.gameObject.GetComponent<Enemy>();
+            Food collidedFood = other.gameObject.GetComponent<Food>();
+
 
             if (collidedEnemy)
             {
@@ -56,10 +58,14 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    Health -= 10;
+                    _health -= collidedEnemy.GetDamage();
                 }
-                
             }
+            else if (collidedFood)
+            {
+                _health += collidedFood.GetHealthGained();
+            }
+
             
         }
     }
