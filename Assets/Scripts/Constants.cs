@@ -124,7 +124,7 @@ namespace Assets.Scripts
     {
         public enum Clip
         {
-            //			ItemPickup01,
+//            			hit01,
             //			PlasmaGunFire01,
             //			PlasmaGunFire02,
             //			MachineGunFire01,
@@ -159,7 +159,7 @@ namespace Assets.Scripts
         {
             MusicNames = new Dictionary<Music, string>
             {
-                //			{clip.PlasmaGunFire01, "sounds/cyberstorm select/gun single shots/subgun-04"},
+//                			{clip.hit01, "Audio/sfx/rr_audio_hit_01"},
                 //			{clip.PlasmaGunFire02, "sounds/cyberstorm select/gun single shots/subgun-05"},            
                 //			{clip.HitConfirm, "sounds/hitmarker"},
                 //			{clip.MachineGunFire01, "sounds/cyberstorm select/cuts/machinegun_double_01"},
